@@ -131,121 +131,121 @@ void app_main(void)
            
 
          entradas = io_le_escreve(saidas);
-         hcf_adc_ler(&valor);
+         hcf_adc_ler(&valor);//ler o valor adc
           
          
        // sprintf(mostra, "%"PRIu32"",valor);
        // lcd595_write(1,1, mostra);
 
 
-         tecla = le_teclado();
+         tecla = le_teclado(); //função para ler o teclado 
         
-        if (tecla>='0' && tecla <='9')
+        if (tecla>='0' && tecla <='9')//
         {
         {num1 = num1 * 10 + tecla -'0';}
-      digito = digito + 1;
+      digito = digito + 1;//funçaõ para funcionar os digitos 
         }
 
 
-       if(digito==1)
+       if(digito==1)// mostrar o digito da primeira posição 
        {
-       lcd595_write(1,1, "Digite a Senha" );
-       lcd595_write(2,1,"[*] [] [] []");
+       lcd595_write(1,1, "Digite a Senha" );//escreve no display
+       lcd595_write(2,1,"[*] [] [] []");//escreve no display
        }
-      if(digito==2)
+      if(digito==2)//mostrar o digito da segunda posição 
       {
       
-       lcd595_write(1,1, "Digite a Senha ");
-       lcd595_write(2,1,"[*] [*] [] []");
+       lcd595_write(1,1, "Digite a Senha ");//escreve no display
+       lcd595_write(2,1,"[*] [*] [] []");//escreve no display
       }
 
-        if(digito==3)
+        if(digito==3)//mostrar o digito da terceira posição 
         {
        
-       lcd595_write(1,1, " Digite a Senha" );
-       lcd595_write(2,1,"[*] [*] [*] []");
+       lcd595_write(1,1, " Digite a Senha" );//escreve no display
+       lcd595_write(2,1,"[*] [*] [*] []");//escreve no display
         }
        
-        if(digito==4)
+        if(digito==4)//mostrar o digito da quarta posição 
         {
       
-       lcd595_write(1,1, " Digite a Senha" );
-       lcd595_write(2,1,"[*] [*] [*] [*]");
+       lcd595_write(1,1, " Digite a Senha" );//escreve no display
+       lcd595_write(2,1,"[*] [*] [*] [*]");//escreve no display
           
-          controle ++;
+          controle ++;//aumento da sequencia, nova funçaõ sendo iniciada 
         }
           
 
-         if (controle == 1)
+         if (controle == 1)// cofre em funcionamento 
          {
         
          
-            if(num1 == 1501) 
+            if(num1 == 1501)//senha para abrir o cofre
           {
-            lcd595_write(1,1, "Senha correta");
+            lcd595_write(1,1, "Senha correta");//senha correta 
               abrir();
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, " 10 segundos");
+              lcd595_write (1,1, " 10 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "9 segundos");
-              vTaskDelay(1000 / portTICK_PERIOD_MS);   
-              lcd595_clear ();
-               vTaskDelay(1000 / portTICK_PERIOD_MS);   
-              lcd595_clear ();
-              lcd595_write (1,1, "8 segundos");
+              lcd595_write (1,1, "9 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "7 segundos");
+              lcd595_write (1,1, "8 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "6 segundos");
+              lcd595_write (1,1, "7 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "5 segundos");
+              lcd595_write (1,1, "6 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "4 segundos");
+              lcd595_write (1,1, "5 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "3 segundos");
+              lcd595_write (1,1, "4 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "2 segundos");
+              lcd595_write (1,1, "3 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, "1 segundos");
+              lcd595_write (1,1, "2 segundos");//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
-              lcd595_write (1,1, " 0 segundos" );
+              lcd595_write (1,1, "1 segundos");//tempo de espera para bloquear cofre 
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, " 0 segundos" );//tempo de espera para bloquear cofre 
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
               fechar();
-              controle = 0;
+              controle = 0;// função esta sendo digitada 
                lcd595_write(1,1, " Digite a Senha " );
                 lcd595_write(2,1,"[] [] [] []");  
           } 
          
              else
             {
-               lcd595_write(1,1, " Senha incorreta ");
+               lcd595_write(1,1, " Senha incorreta ");// senha incorreta 
                vTaskDelay(1000 / portTICK_PERIOD_MS);   
              lcd595_write(1,1, " Digite a Senha ");
               lcd595_write(2,1," [] [] [] [] ");
@@ -257,13 +257,13 @@ void app_main(void)
 
 
          }
-           if(le_teclado () == '/')
+           if(le_teclado () == '/')//tecla para abrir
           {
             rotacionar_DRV(1, 10, saidas);
           }
 
 
-          if(le_teclado () == 'x')
+          if(le_teclado () == 'x')// tecla para fechar
           {
             rotacionar_DRV(0, 10, saidas);
        
