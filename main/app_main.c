@@ -119,13 +119,17 @@ void app_main(void)
 
     DRV_init(6,7);
     
+    lcd595_write(1,1, "Digite a Senha" );
+    lcd595_write(2,1,"[] [] [] []");  
        
     /////////////////////////////////////////////////////////////////////////////////////   Início do ramo principal                    
     while (1)                                                                                                                         
     {                                                                                                                                 
         //_______________________________________________________________________________________________________________________________________________________ //
         //-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -  -  -  -  -  -  -  -  Escreva seu código aqui!!! //
-                                                                                                                                                                  
+
+           
+
          entradas = io_le_escreve(saidas);
          hcf_adc_ler(&valor);
           
@@ -145,29 +149,37 @@ void app_main(void)
 
        if(digito==1)
        {
-       lcd595_init();
-       lcd595_write(1,1, "Digite a Senha");
+       lcd595_write(1,1, "Digite a Senha" );
        lcd595_write(2,1,"[*] [] [] []");
        }
       if(digito==2)
       {
-       lcd595_init();
-       lcd595_write(1,1, "Digite a Senha");
+      
+       lcd595_write(1,1, "Digite a Senha ");
        lcd595_write(2,1,"[*] [*] [] []");
       }
 
         if(digito==3)
         {
-       lcd595_init();
-       lcd595_write(1,1, "Digite a Senha");
+       
+       lcd595_write(1,1, " Digite a Senha" );
        lcd595_write(2,1,"[*] [*] [*] []");
         }
+       
         if(digito==4)
         {
-       lcd595_init();
-       lcd595_write(1,1, "Digite a Senha");
+      
+       lcd595_write(1,1, " Digite a Senha" );
        lcd595_write(2,1,"[*] [*] [*] [*]");
+          
+          controle ++;
+        }
+          
+
+         if (controle == 1)
+         {
         
+         
             if(num1 == 1501) 
           {
             lcd595_write(1,1, "Senha correta");
@@ -180,15 +192,71 @@ void app_main(void)
               lcd595_write (1,1, "9 segundos");
               vTaskDelay(1000 / portTICK_PERIOD_MS);   
               lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "8 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "7 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "6 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "5 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "4 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "3 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "2 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, "1 segundos");
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
+              lcd595_write (1,1, " 0 segundos" );
+              vTaskDelay(1000 / portTICK_PERIOD_MS);   
+              lcd595_clear ();
               fechar();
+              controle = 0;
+               lcd595_write(1,1, " Digite a Senha " );
+                lcd595_write(2,1,"[] [] [] []");  
           } 
-            
+         
              else
             {
-               lcd595_write(1,1, "Senha incorreta");
+               lcd595_write(1,1, " Senha incorreta ");
+               vTaskDelay(1000 / portTICK_PERIOD_MS);   
+             lcd595_write(1,1, " Digite a Senha ");
+              lcd595_write(2,1," [] [] [] [] ");
+               
+               controle = 0;
+               num1 = 0;
+               digito = 0;
             }
 
-        
+
+         }
            if(le_teclado () == '/')
           {
             rotacionar_DRV(1, 10, saidas);
@@ -198,9 +266,11 @@ void app_main(void)
           if(le_teclado () == 'x')
           {
             rotacionar_DRV(0, 10, saidas);
-          }
-          }
-    }
+       
+             }   
+    
+       }
+    
     
         //-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  - -  -  -  -  -  -  -  -  -  -  Escreva seu só até aqui!!! //
        //________________________________________________________________________________________________________________________________________________________//
